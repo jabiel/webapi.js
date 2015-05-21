@@ -20,8 +20,8 @@ angular.module('myApp', ['ui.keypress', 'ui.event', ...])
 Configure webapi
 
 ```javascript
-app.run(function (webapiConfig, toaster) {
-	webapiConfig.baseUrl = 'http://myApiHost.com/api/';
+app.run(function (webapiConfig) {
+	webapiConfig.baseUrl = 'http://myWebapiHost.com/api/';
 	webapiConfig.onError = function (error) {
 		console.log('webapi error: ', error);
 	};
