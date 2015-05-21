@@ -1,0 +1,38 @@
+{
+  "name": "webapi.js",
+  "version": "0.0.2",
+  "description": "An Angular Test Module Made For Fun.",
+  "main": "webapi.js",
+  "devDependencies": {
+    "browserify": "^4.2.0",
+    "gulp": "^3.8.6",
+    "karma": "0.12.16",
+    "karma-bro": "^0.6.0",
+    "karma-chrome-launcher": "^0.1.4",
+    "karma-coverage": "~0.1.4",
+    "karma-firefox-launcher": "^0.1.3",
+    "karma-jasmine": "^0.1.5",
+    "karma-sauce-launcher": "^0.2.10",
+    "vinyl-source-stream": "^0.1.1",
+    "watchify": "^0.10.2"
+  },
+  "scripts": {
+    "test": "karma start karma-sauce.conf.js",
+    "build": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jabiel/webapi.js"
+  },
+  "author": "Jarek Bielicki",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jabiel/webapi.js/issues"
+  },
+  "homepage": "https://github.com/jabiel/webapi.js",
+  "dependencies": {
+    "angular-hint-log": ">=0.4.0",
+    "suggest-it": "0.0.1"
+  }
+}
+

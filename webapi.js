@@ -1,24 +1,24 @@
 angular.module('webapi', [])
 
 .value('webapiConfig', {
-	baseUrl: 'http://google.com/',
-	onError: function(error){ 
-		console.log('webapi error:', error);
-	}
+    baseUrl: '',
+    onError: function (error) {
+        console.error('webapi error:', error);
+    }
 })
 .factory('webapi', ['$http', 'webapiConfig', function ($http, webapiConfig) {
 
     var apiurl = webapiConfig.baseUrl;
-	
+
     var service = {};
     var cashe = {};
     var casheEnabled = false;
-    
+
     service.setPath = function (contrlr) {
         service.resourcePath = contrlr;
     }
 
-	service.debug = function () {
+    service.debug = function () {
         console.log('webapi debug: ', webapiConfig);
     }
 
@@ -31,13 +31,12 @@ angular.module('webapi', [])
         } else if (error.statusText) {
             msg = error.status + ' ' + error.statusText;
         } else {
-			msg = error;
-		}
-		webapiConfig.onError(msg);
+            msg = error;
+        }
+        webapiConfig.onError(msg);
     };
 
-    var _transformArgs = function ()
-    {
+    var _transformArgs = function () {
         var uri = apiurl + service.resourcePath;
         var callbackFunc, model;
         for (var i = 0; i < arguments.length; i++) {
@@ -54,7 +53,7 @@ angular.module('webapi', [])
                 callbackFunc = arguments[i];
             }
 
-            if(arguments[i] !== null && typeof arguments[i] === 'object') { // model must be object
+            if (arguments[i] !== null && typeof arguments[i] === 'object') { // model must be object
                 model = arguments[i];
             }
         }
@@ -75,7 +74,7 @@ angular.module('webapi', [])
             var d = { data: cashe[r.uri] };
             r.callback(d);
         } else {
-            
+
             $http.get(r.uri).then(function (d) {
                 cashe[r.uri] = d.data;
                 r.callback(d);
@@ -107,7 +106,8 @@ angular.module('webapi', [])
         var r = _transformArgs.apply(this, arguments);
         $http.delete(r.uri).then(r.callback, _handleError);
     };
-    
+
     return service;
 
 }]);
+
