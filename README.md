@@ -14,7 +14,7 @@ Load the script file
 ## Configure
 Add module to your dependencies
 ```html
-angular.module('myApp', ['ui.keypress', 'ui.event', ...])
+angular.module('myApp', [..., 'webapi', ...])
 ```
 
 Configure webapi

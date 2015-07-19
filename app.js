@@ -1,7 +1,7 @@
 var app = angular.module('myApp', ['webapi']);
 
 app.run(function (webapiConfig) {
-  webapiConfig.baseUrl = 'https://www.google.pl/?';
+  webapiConfig.baseUrl = 'http://jsonplaceholder.typicode.com/';
   webapiConfig.onError = function(error){
 	console.log('webapi error: ', error);
   }
@@ -10,12 +10,13 @@ app.run(function (webapiConfig) {
 app.controller('myCtrl', ['$scope', 'webapi', function($scope, webapi) {
 
 	$scope.greeting = 'Hello';
+	$scope.query = '1';
 	$scope.result = '';
 	
 	$scope.search = function(qry)
 	{
-		webapi.get('q='+qry, function(d){
-			$scope.result = d;
+		webapi.get('posts?userId='+qry, function(d){
+			$scope.result = d.data;
 		});
 	}
 	
