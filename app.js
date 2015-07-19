@@ -15,8 +15,15 @@ app.controller('myCtrl', ['$scope', 'webapi', function($scope, webapi) {
 	
 	$scope.search = function(qry)
 	{
-		webapi.get('posts?userId='+qry, function(d){
-			$scope.result = d.data;
+		webapi.get('posts?userId='+qry).then(function(d){
+			$scope.result = d;
+		});
+	}
+	
+	$scope.searchc = function(qry)
+	{
+		webapi.getc('posts?userId='+qry).then(function(d){
+			$scope.result = d;
 		});
 	}
 	
