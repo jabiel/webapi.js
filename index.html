@@ -9,8 +9,11 @@
 		<button ng-click='searchc(query)'>Get request with cache support</button>
 		<button ng-click='query=1;result=null;'>clear view</button>
 		<p>
-		{{ result }}
+		<pre>{{ result }}</pre>
 		</p>
+		<p></p>
+		<button ng-click='headers()'>Get request headers</button>
+		<button ng-click='login()'>login</button>
 	  </div>
 	</div>
 

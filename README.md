@@ -1,6 +1,8 @@
 # webapi.js [![Build Status](https://travis-ci.org/jabiel/webapi.js.svg)](https://travis-ci.org/jabiel/webapi.js)
 
-Angular module for working with web api
+Angular module for working with asp.net web api 
+
+Supports bearer token passing without http interceptor
 
 I use it to  learn Angular 
 
@@ -44,6 +46,14 @@ webapi.get('controller/action').then(function(data){
 });
 ```
 
+Login to get bearer token
+
+```javascript
+webapi.login('userName', 'password').then(function(data){
+	// from now all webapi calls will pass token 
+	// token is saved in localStorage
+});
+```
 
 
 ## Unit tests

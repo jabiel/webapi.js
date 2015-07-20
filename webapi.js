@@ -22,8 +22,30 @@
             return response.data;
         }  
 		
+		function buildUrl(url) {
+			if(url.indexOf('http')==0)
+				return url;
+			else 
+				return webapiConfig.baseUrl + url;
+        } 
+		
+		function buildConfig() {
+			var c = {};
+			var authData =(localStorage.getItem('authData')!==null) ? JSON.parse(localStorage.getItem('authData')) : null;
+			
+			if(authData && authData.access_token)
+			{
+				c.headers = c.headers || {};
+				c.headers.Authorization = 'Bearer ' + authData.access_token;
+			}
+			return c;
+        } 
+		
+		
+		
         function get(url) {
-            return $http.get(webapiConfig.baseUrl + url)
+		
+            return $http.get(buildUrl(url), buildConfig())
                 .then(getData)
                 .catch(handleError);
         }
@@ -42,19 +64,19 @@
         }
 		
         function post(url, model) {
-            return $http.post(webapiConfig.baseUrl + url, model)
+            return $http.post(buildUrl(url), model, buildConfig())
                 .then(getData)
                 .catch(handleError);
         }
 
 		function put(url, model) {
-            return $http.put(webapiConfig.baseUrl + url, model)
+            return $http.put(buildUrl(url), model, buildConfig())
                 .then(getData)
                 .catch(handleError);
         }
 		
 		function _delete(url) {
-            return $http.delete(webapiConfig.baseUrl + url)
+            return $http.delete(buildUrl(url), buildConfig())
                 .then(getData)
                 .catch(handleError);
         }
@@ -63,14 +85,35 @@
             cache = {};
         }
 		
+		function login(userName, password) {
+			
+			var data = "grant_type=password&username=" + userName + "&password=" + password;
+			
+			return $http.post(buildUrl('token'), data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
+				.then(function (response) {                
+					localStorage.setItem('authData', JSON.stringify(response.data));
+					return response.data;
+				}).catch(handleError);
+        }
+		
+		function logout()
+		{
+			localStorage.removeItem('authData');
+		}
+		
+		
 		return {
             get: get,
             post: post,
 			put: put,
 			delete: _delete,
 			
+			// cache support
 			getc: getc,
-			clearc: clearc
+			clearc: clearc,
+			
+			// asp.net identity login
+			login: login
         };
     };
 
