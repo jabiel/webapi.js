@@ -1,8 +1,7 @@
 # webapi.js [![Build Status](https://travis-ci.org/jabiel/webapi.js.svg)](https://travis-ci.org/jabiel/webapi.js)
 
 Angular module for working with web api
-
-Used to learn Angular 
+I use it to  learn Angular 
 
 ## Install
 Load the script file
@@ -20,7 +19,7 @@ angular.module('myApp', [..., 'webapi', ...])
 Configure webapi
 
 ```javascript
-app.run(function (webapiConfig) {
+angular.module('myApp').run(function (webapiConfig) {
 	webapiConfig.baseUrl = 'http://myWebapiHost.com/api/';
 	webapiConfig.onError = function (error) {
 		console.log('webapi error: ', error);
@@ -33,14 +32,14 @@ app.run(function (webapiConfig) {
 Add dependency to your service or controller
 
 ```javascript
-app.factory('myService', ['$scope', 'webapi', function ($scope, webapi) {
+app.factory('myService', ['webapi', function (webapi) {
 ```
 
 And use it
 
 ```javascript
-webapi.get('controller/action', function(apidata){
-	$scope.data = apidata;
+webapi.get('controller/action').then(function(data){
+	doSomethingWith(data);
 });
 ```
 
