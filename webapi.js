@@ -1,3 +1,9 @@
+/*
+ * webapi - easy access webservices
+ * https://github.com/jabiel/webapi.js
+ * (c) 2014-2015 MIT License, https://jabiel.pl
+ */
+
 (function(module) {
 
     var webapi = function ($http, $q, webapiConfig) {
@@ -16,6 +22,8 @@
 				msg = error;
 			}
 			webapiConfig.onError(msg);
+
+			return $q.reject(error);
 		}
 		
         function getData(response) {            
@@ -46,8 +54,8 @@
         function get(url) {
 		
             return $http.get(buildUrl(url), buildConfig())
-                .then(getData)
-                .catch(handleError);
+                .then(getData, handleError)
+                //.catch(handleError);
         }
 		
 		function getc(url) {
@@ -65,20 +73,17 @@
 		
         function post(url, model) {
             return $http.post(buildUrl(url), model, buildConfig())
-                .then(getData)
-                .catch(handleError);
+                .then(getData, handleError);
         }
 
 		function put(url, model) {
-            return $http.put(buildUrl(url), model, buildConfig())
-                .then(getData)
-                .catch(handleError);
+		    return $http.put(buildUrl(url), model, buildConfig())
+                .then(getData, handleError);
         }
 		
 		function _delete(url) {
-            return $http.delete(buildUrl(url), buildConfig())
-                .then(getData)
-                .catch(handleError);
+		    return $http.delete(buildUrl(url), buildConfig())
+                .then(getData, handleError);
         }
       
 		function clearc() {
