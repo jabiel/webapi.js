@@ -1,10 +1,8 @@
 # webapi.js [![Build Status](https://travis-ci.org/jabiel/webapi.js.svg)](https://travis-ci.org/jabiel/webapi.js)
 
-Angular module for working with asp.net web api 
+Angular module that simplifies access to .net framework's webapi
 
-Supports bearer token passing without http interceptor
-
-I use it to  learn Angular 
+I use it to learn Angular 
 
 ## Install
 Load the script file
