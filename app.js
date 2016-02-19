@@ -35,7 +35,7 @@ app.controller('myCtrl', ['$scope', 'webapi', function($scope, webapi) {
 	
 	$scope.login = function(qry)
 	{
-		webapi.login('paul@softwareplayground.co.uk', 'xxxxxx').then(function(d){
+		webapi.login('xxx@xxx.com', 'xxxxxx').then(function(d){
 			webapi.get('api/apiconfig/get/methods').then(printJson);
 		});
 	}
