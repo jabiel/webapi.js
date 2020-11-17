@@ -13,7 +13,7 @@
    	    "grunt-contrib-jshint": "~0.5.4",
 	    "grunt-contrib-concat": "~0.3.0",
 	    "coffee-script": "~1.6.3",
-	    "express": "~3.4.1",
+	    "express": "~3.11.0",
 	    "karma-coffee-preprocessor": "~0.1",
 	    "karma-firefox-launcher":"~0.1",
 	    "karma-chrome-launcher":"~0.1",
