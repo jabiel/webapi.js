@@ -1,26 +1,25 @@
 {
     "name": "webapi.js",
     "version": "0.0.2",
-    "description": "An Angular Test Module Made For Fun.",
+    "description": "An Old Angular Test Module Made For Fun.",
     "main": "webapi.js",
     "author": "Jarek Bielicki",
     "license": "MIT",
     "devDependencies": {
-        "grunt": "~0.4.1",
-	    "grunt-contrib-connect": "~0.5.0",
-	    "grunt-contrib-watch": "~0.5.3",
-	    "grunt-contrib-coffee": "~0.7.0",
-   	    "grunt-contrib-jshint": "~0.5.4",
-	    "grunt-contrib-concat": "~0.3.0",
-	    "coffee-script": "~1.6.3",
-	    "express": "~3.4.1",
-	    "karma-coffee-preprocessor": "~0.1",
-	    "karma-firefox-launcher":"~0.1",
-	    "karma-chrome-launcher":"~0.1",
-	    "karma-ie-launcher": "~0.1",
-	    "karma-jasmine": "~0.1",
-	    "grunt-karma": "~0.7.0"
-
+        "coffee-script": "~1.6.3",
+        "express": "^4.17.1",
+        "grunt": "^1.4.0",
+        "grunt-contrib-coffee": "~0.7.0",
+        "grunt-contrib-concat": "~0.3.0",
+        "grunt-contrib-connect": "^3.0.0",
+        "grunt-contrib-jshint": "^3.0.0",
+        "grunt-contrib-watch": "^1.1.0",
+        "grunt-karma": "^4.0.2",
+        "karma-chrome-launcher": "~0.1",
+        "karma-coffee-preprocessor": "~0.1",
+        "karma-firefox-launcher": "~0.1",
+        "karma-ie-launcher": "~0.1",
+        "karma-jasmine": "~0.1"
     },
     "scripts": {
         "test": "karma start karma-sauce.conf.js",
@@ -30,13 +29,9 @@
         "type": "git",
         "url": "https://github.com/jabiel/webapi.js"
     },
-
     "bugs": {
         "url": "https://github.com/jabiel/webapi.js/issues"
     },
     "homepage": "https://github.com/jabiel/webapi.js",
-    "dependencies": {
-
-    }
+    "dependencies": {}
 }
-
